@@ -24,7 +24,6 @@ public class FriendsEntity {
     @ManyToMany(cascade = CascadeType.ALL)
     List<UserEntity> userFriends;
 
-
     @Override
     public String toString() {
         return "UserFriends_{" +
