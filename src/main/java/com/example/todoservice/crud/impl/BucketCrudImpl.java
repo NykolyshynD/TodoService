@@ -1,19 +1,19 @@
 package com.example.todoservice.crud.impl;
 
 import com.example.todoservice.crud.Crud;
-import com.example.todoservice.dao.UserBucketDao;
-import com.example.todoservice.models.UserBucket_;
+import com.example.todoservice.dao.BucketEntityDao;
+import com.example.todoservice.models.BucketEntity;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Component;
 
 @Component
 @AllArgsConstructor
-public class UserBucketCrudImpl implements Crud<UserBucket_> {
+public class BucketCrudImpl implements Crud<BucketEntity> {
 
-    private UserBucketDao userBucketDao;
+    private BucketEntityDao userBucketDao;
 
     @Override
-    public void save(UserBucket_ o) {
+    public void save(BucketEntity o) {
         double firstNumbersInUserBucketId = Math.random() * 223 * 5;
         double secondNumbersInUserBucketId = Math.random() * 223 * 5;
         o.setId(firstNumbersInUserBucketId + "" + o.getUserWhoHaveBucket().getName() + o.getUserItem().getName() + "" + secondNumbersInUserBucketId);
@@ -21,12 +21,12 @@ public class UserBucketCrudImpl implements Crud<UserBucket_> {
     }
 
     @Override
-    public void delete(UserBucket_ o) {
+    public void delete(BucketEntity o) {
         userBucketDao.delete(o);
     }
 
     @Override
-    public void update(UserBucket_ o) {
+    public void update(BucketEntity o) {
         userBucketDao.save(o);
     }
 }

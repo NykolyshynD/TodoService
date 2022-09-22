@@ -17,7 +17,7 @@ import java.util.Date;
 @AllArgsConstructor
 @NoArgsConstructor
 @FieldDefaults(level = AccessLevel.PRIVATE)
-public class UserTodo_ {
+public class TodoEntity {
 
     @Id
     String id;
@@ -26,9 +26,9 @@ public class UserTodo_ {
     Date liveTime;
 
     @ManyToOne(cascade = CascadeType.ALL)
-    User_ userWhoHaveTodo;
+    UserEntity userWhoHaveTodo;
 
-    public UserTodo_(String todoName, String description, Date liveTime) {
+    public TodoEntity(String todoName, String description, Date liveTime) {
         this.todoName = todoName;
         this.description = description;
         this.liveTime = liveTime;

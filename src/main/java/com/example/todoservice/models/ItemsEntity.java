@@ -14,7 +14,7 @@ import java.util.List;
 @AllArgsConstructor
 @NoArgsConstructor
 @FieldDefaults(level = AccessLevel.PRIVATE)
-public class UserItems_ {
+public class ItemsEntity {
 
     @Id
     String id;
@@ -23,10 +23,10 @@ public class UserItems_ {
     String itemPrice;
 
     @OneToMany(mappedBy = "userItem")
-    List<UserBucket_> userItemInBucket;
+    List<BucketEntity> userItemInBucket;
 
     @ManyToOne(cascade = CascadeType.ALL)
-    User_ userWhoHavaItem;
+    UserEntity userWhoHavaItem;
 
     @Override
     public String toString() {

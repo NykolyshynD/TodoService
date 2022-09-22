@@ -14,7 +14,7 @@ import java.util.List;
 @AllArgsConstructor
 @NoArgsConstructor
 @FieldDefaults(level = AccessLevel.PRIVATE)
-public class User_ {
+public class UserEntity {
 
     @Id
     String id;
@@ -27,21 +27,21 @@ public class User_ {
     boolean showUserBucket;
 
     @OneToMany(mappedBy = "userWhoHaveTodo")
-    List<UserTodo_> userTodoList;
+    List<TodoEntity> userTodoList;
 
     @OneToMany(mappedBy = "userWhoSendMassage")
-    List<UserMassage_> userMassageList;
+    List<MassageEntity> userMassageList;
 
     @OneToMany(mappedBy = "userWhoHavaItem")
-    List<UserItems_> userItemsList;
+    List<ItemsEntity> userItemsList;
 
     @OneToMany(mappedBy = "userWhoHaveBucket")
-    List<UserBucket_> userBucketList;
+    List<BucketEntity> userBucketList;
 
     @ManyToMany(cascade = CascadeType.ALL, mappedBy = "userFriends")
-    List<UserFriends_> userFriendsList;
+    List<FriendsEntity> userFriendsList;
 
-    public User_(String name, String email, String age, String password, String point, String antiPoint, boolean showUserBucket) {
+    public UserEntity(String name, String email, String age, String password, String point, String antiPoint, boolean showUserBucket) {
         this.name = name;
         this.email = email;
         this.age = age;

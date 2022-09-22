@@ -13,7 +13,7 @@ import javax.persistence.*;
 @AllArgsConstructor
 @NoArgsConstructor
 @FieldDefaults(level = AccessLevel.PRIVATE)
-public class UserBucket_ {
+public class BucketEntity {
 
     @Id
     String id;
@@ -21,8 +21,8 @@ public class UserBucket_ {
     long countSumThingsInBucket;
 
     @ManyToOne(cascade = CascadeType.ALL)
-    User_ userItem;
+    UserEntity userItem;
 
     @ManyToOne(cascade = CascadeType.ALL)
-    User_ userWhoHaveBucket;
+    UserEntity userWhoHaveBucket;
 }

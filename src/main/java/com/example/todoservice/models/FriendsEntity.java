@@ -9,26 +9,26 @@ import lombok.experimental.FieldDefaults;
 import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.Id;
-import javax.persistence.ManyToOne;
+import javax.persistence.ManyToMany;
+import java.util.List;
 
 @Entity
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
 @FieldDefaults(level = AccessLevel.PRIVATE)
-public class UserMassage_ {
+public class FriendsEntity {
 
     @Id
     String id;
-    String massage;
-    @ManyToOne(cascade = CascadeType.ALL)
-    User_ userWhoSendMassage;
+    @ManyToMany(cascade = CascadeType.ALL)
+    List<UserEntity> userFriends;
+
 
     @Override
     public String toString() {
-        return "UserMassage_{" +
+        return "UserFriends_{" +
                 "id='" + id + '\'' +
-                ", massage='" + massage + '\'' +
                 '}';
     }
 }

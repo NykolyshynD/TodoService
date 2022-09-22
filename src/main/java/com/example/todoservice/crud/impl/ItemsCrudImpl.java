@@ -1,19 +1,19 @@
 package com.example.todoservice.crud.impl;
 
 import com.example.todoservice.crud.Crud;
-import com.example.todoservice.dao.UserItemsDao;
-import com.example.todoservice.models.UserItems_;
+import com.example.todoservice.dao.ItemsEntityDao;
+import com.example.todoservice.models.ItemsEntity;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Component;
 
 @Component
 @AllArgsConstructor
-public class UserItemsCrudImpl implements Crud<UserItems_> {
+public class ItemsCrudImpl implements Crud<ItemsEntity> {
 
-    private UserItemsDao userItemsDao;
+    private ItemsEntityDao userItemsDao;
 
     @Override
-    public void save(UserItems_ o) {
+    public void save(ItemsEntity o) {
         double firstNumbersInUserItemsId = Math.random() * 220 * 5;
         double secondNumbersInUserItemsId = Math.random() * 220 * 5;
         o.setId(firstNumbersInUserItemsId + "" + o.getItemName() + "" + o.getUserWhoHavaItem().getName() + "" + secondNumbersInUserItemsId);
@@ -21,12 +21,12 @@ public class UserItemsCrudImpl implements Crud<UserItems_> {
     }
 
     @Override
-    public void delete(UserItems_ o) {
+    public void delete(ItemsEntity o) {
         userItemsDao.delete(o);
     }
 
     @Override
-    public void update(UserItems_ o) {
+    public void update(ItemsEntity o) {
         userItemsDao.save(o);
     }
 }
